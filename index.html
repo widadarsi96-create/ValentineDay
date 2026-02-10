@@ -81,6 +81,42 @@
   object-fit:contain;
 }
 
+  .modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+
+.modal-box{
+  background:var(--card);
+  padding:22px 20px;
+  border-radius:16px;
+  max-width:300px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  animation:fade .3s ease;
+}
+
+.modal-box p{
+  color:#5b4a42;
+  margin-bottom:14px;
+}
+
+.hide{
+  display:none !important;
+}
+
+#p5 .btn{
+  display:block;
+  margin:20px auto 0;
+}
+
+
+
     .gallery{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -93,9 +129,27 @@
     }
     iframe{border-radius:12px}
     @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+
+  
+
   </style>
 </head>
 <body>
+
+  <!-- MODAL MESSAGE -->
+<div id="modal" class="modal hide">
+  <div class="modal-box">
+    <p>
+      maaf yaa kalo aku belum bisa kasih kamu coklat atau segala macem kaya orang lain:(
+    </p>
+    <button class="btn" onclick="closeModal()">Oke</button>
+  </div>
+</div>
+
+
+  <audio id="backsound">
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
 
 <canvas class="confetti"></canvas>
 
@@ -163,9 +217,29 @@ Aku harap hubungan kita langgeng terus yaaa, sampai kita menjadi debu, layaknya 
 <br><br>
 Aku bener bener bahagia banget punya kamu. Makasih udah jadi bagian paling <strong>berharga</strong> di dalam hidup aku. I will always love you—today, tomorow, and forever.
   </p>
+
+  <button class="btn" onclick="openModal()">Oke</button>
 </div>
 
 <script>
+
+  function openModal(){
+  document.getElementById("modal").classList.remove("hide");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.add("hide");
+}
+
+
+  var audio = document.getElementById("backsound");
+
+  
+  document.body.addEventListener("click", function() {
+    audio.play();
+    backsound.volume = 0.2;
+  }, { once: true }); 
+
   function go(n){
     document.querySelectorAll('.wrap').forEach(w=>w.classList.add('hide'));
     document.getElementById('p'+n).classList.remove('hide');

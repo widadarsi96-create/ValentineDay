@@ -23,16 +23,17 @@
 
 
     body{
-      margin:0;
-      min-height:100vh;
-      background:
-        radial-gradient(#b8a7a0 1.2px, transparent 1.2px) 0 0/40px 40px,
-        var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(#b8a7a0 1.2px, transparent 1.2px) 0 0/40px 40px,
+    var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;   /* cuma block horizontal */
+}
+
     .confetti{
       position:fixed; inset:0; pointer-events:none;
     }
@@ -291,3 +292,4 @@ function closeModal(){
 
 </body>
 </html>
+

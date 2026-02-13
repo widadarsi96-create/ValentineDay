@@ -146,6 +146,17 @@
 </head>
 <body>
 
+  <div id="welcomeModal" class="modal">
+  <div class="modal-box">
+    <p>
+      Yup, kamu benar,
+      Hari ini adalah Valentine Day 💘
+    </p>
+    <button class="btn" onclick="closeWelcome()">Next</button>
+  </div>
+</div>
+
+
   <!-- MODAL MESSAGE -->
 <div id="modal" class="modal hide">
   <div class="modal-box">
@@ -156,8 +167,7 @@
   </div>
 </div>
 
-
-  <audio id="backsound" loop="true">
+  <audio id="backsound">
     <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
@@ -168,8 +178,9 @@
  <div class="img">
   <img src="kucing2.png" alt="kucing lucu">
 </div>
-  <h1>Yup, kamu benar, hari ini adalah <br> hari Valentine
+  <h1>Happy Valentine's Day
   </h1>
+  
   <p>(｡♥‿♥｡)</p>
   <p>Try to click the Next button!</p>
   <button class="btn" onclick="go(2)">Next</button>
@@ -235,6 +246,14 @@ Aku bener bener bahagia banget punya kamu. Makasih udah jadi bagian paling <stro
 </div>
 
 <script>
+  function closeWelcome(){
+  document.getElementById("welcomeModal").classList.add("hide");
+}
+
+window.onload = function(){
+  document.getElementById("welcomeModal").classList.remove("hide");
+};
+
 
   function openModal(){
   document.getElementById("modal").classList.remove("hide");
@@ -250,7 +269,7 @@ function closeModal(){
   
   document.body.addEventListener("click", function() {
     audio.play();
-    backsound.volume = 0.4;
+    backsound.volume = 0.5;
   }, { once: true }); 
 
   function go(n){
@@ -292,6 +311,3 @@ function closeModal(){
 
 </body>
 </html>
-
-
-
